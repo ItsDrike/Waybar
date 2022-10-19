@@ -11,6 +11,8 @@ build-debug:
 	ninja -C build
 
 install: build
+	meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
+	meson configure -Dexperimental=true build
 	ninja -C build install
 
 run: build
